@@ -59,7 +59,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	"tpope/vim-fugitive",
-	"rebelot/kanagawa.nvim",
+    "loctvl842/monokai-pro.nvim",
     {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
 -- or                              , branch = '0.1.1',
@@ -126,21 +126,29 @@ require("lazy").setup({
         "akinsho/bufferline.nvim",
         version = "v3.*",
         config = function()
-            require("bufferline").setup()
+            vim.g.termguicolors=true
+            require("bufferline").setup({
+                options = {
+                    separator_style = "slant"
+                }
+            })
             --- put ur keymaps here lol
-            vim.keymap.set("n", "<C-Tab>", "<Cmd>BufferLineCycleNext<Cr>")
-            vim.keymap.set("n", "<C-S-Tab>", "<Cmd>BufferLineCyclePrev<Cr>")
+            vim.keymap.set("n", "<Leader><Tab>", "<Cmd>BufferLineCycleNext<Cr>")
+            --- vim.keymap.set("n", "<Leader><S-Tab>", "<Cmd>BufferLineCyclePrev<Cr>")
         end
     },
     {
-        "nvim-tree/nvim-tree.lua",
-        dependencies = "nvim-tree/nvim-web-devicons",
+        "nvim-neo-tree/neo-tree.nvim",
+        branch="v2.x",
+        dependencies={
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        },
         config = function()
-            require("nvim-tree").setup({
-                --- disable_netrw = false,
-                --- hijack_netrw = false,
-            })
-            vim.keymap.set("n", "<C-e>", "<Cmd>NvimTreeFindFileToggle<Cr>")
+            require("neo-tree").setup()
+            vim.keymap.set("n", "<C-e>", "<Cmd>Neotree focus<Cr>")
+            vim.keymap.set("n", "<C-b>", "<Cmd>Neotree close<Cr>")
         end
     },
     {
@@ -149,11 +157,15 @@ require("lazy").setup({
 		'nvim-lua/plenary.nvim',
 		'IllustratedMan-code/telescope-conda.nvim'
 		}
+    },
+    {
+        "SmiteshP/nvim-navic",
+        dependencies={
+            "neovim/nvim-lspconfig"
+        }
+    },
+    {
+        "APZelos/blamer.nvim",
     }
-
-
-
 })
-
-vim.cmd.colorscheme("kanagawa")
-
+vim.cmd.colorscheme("monokai-pro")
