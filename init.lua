@@ -25,10 +25,11 @@ local map = vim.keymap.set
 map("t", "<Esc>", "<C-Bslash><C-n>:bd!<Cr>")
 map("n", "<leader>t", ":term<Cr>i")
 map("n", "<leader>ff", ":Telescope<Cr>")
-map("n", "<C-g>", ":Git<Cr>")
-map("n", "<C-s>", ":w<Cr>")
+map("n", "<Leader>g", ":Git<Cr>")
+map("n", "<Leader>s", ":w<Cr>")
 map("x", "<", "<gv")
 map("x", ">", ">gv")
+map("n", "<Leader>w", ":bd<Cr>")
 
 vim.opt.clipboard = "unnamedplus"
 
@@ -72,6 +73,19 @@ require("lazy").setup({
         })
         vim.keymap.set("n", "<Leader>pp", "<Cmd>lua require'telescope'.extensions.conda.conda{}<Cr>")
     end
+    },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+            }
     },
     {
         "neovim/nvim-lspconfig",
@@ -146,9 +160,10 @@ require("lazy").setup({
             "MunifTanjim/nui.nvim",
         },
         config = function()
-            require("neo-tree").setup()
-            vim.keymap.set("n", "<C-e>", "<Cmd>Neotree focus<Cr>")
-            vim.keymap.set("n", "<C-b>", "<Cmd>Neotree close<Cr>")
+            local neotree = require("neo-tree")
+            neotree.setup()
+            vim.keymap.set("n", "<Leader>e", "<Cmd>Neotree focus<Cr>")
+            vim.keymap.set("n", "<Leader>e", "<Cmd>Neotree close<Cr>")
         end
     },
     {
