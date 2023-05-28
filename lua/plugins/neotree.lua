@@ -3,6 +3,9 @@ return {
         "smartpde/telescope-recent-files",
     },
     {
+        "nvim-tree/nvim-web-devicons",
+    },
+    {
         "nvim-neo-tree/neo-tree.nvim",
         branch="v2.x",
         dependencies={

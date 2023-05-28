@@ -1,7 +1,7 @@
 require("os")
 
 -- python env
-vim.g.python3_host_prog='C:\\Users\\cjyou\\anaconda3\\envs\\superautopetsim\\python.exe'
+-- vim.g.python3_host_prog='C:\\Users\\cjyou\\anaconda3\\envs\\superautopetsim\\python.exe'
 
 vim.opt.number = true
 vim.opt.relativenumber = true
