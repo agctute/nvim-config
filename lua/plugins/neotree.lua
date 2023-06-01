@@ -1,8 +1,5 @@
 return {
     {
-        "smartpde/telescope-recent-files",
-    },
-    {
         "nvim-tree/nvim-web-devicons",
     },
     {
@@ -23,21 +20,7 @@ return {
     {
 	"tpope/vim-fugitive",
     "loctvl842/monokai-pro.nvim",
-    {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
--- or                              , branch = '0.1.1',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-        local tele = require('telescope')
-        tele.load_extension("recent_files")
-        tele.setup({
-            extensions = {
-                conda = {anaconda_path = "C:\\Users\\cjyou\\anaconda3\\"},
-            }
-        })
-        vim.keymap.set("n", "<Leader>pp", "<Cmd>lua require'telescope'.extensions.conda.conda{}<Cr>")
-    end
-    },
+    
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
