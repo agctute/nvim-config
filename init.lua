@@ -6,12 +6,14 @@ require("os")
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.autoindent = true
+vim.opt.colorcolumn = "79"
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.shiftround = true
+vim.o.guifont = "Hack Nerd Font"
 
 vim.g.mapleader = " "
 
@@ -24,19 +26,10 @@ map("n", "<Leader>s", ":w<Cr>")
 map("x", "<", "<gv")
 map("x", ">", ">gv")
 map("n", "<Leader>w", ":bd<Cr>")
+map("n", "<Leader>pv", vim.cmd.Ex)
 
 vim.opt.clipboard = "unnamedplus"
 
-local setup_lsp_keybinds = function()
-    map("n", "gD", vim.lsp.buf.declaration, { silent = true, buffer = true })
-    map("n", "gd", vim.lsp.buf.definition, { silent = true, buffer = true })
-    map("n", "K", vim.lsp.buf.hover, { silent = true, buffer = true })
-    map("n", "<Leader>dj", vim.diagnostic.goto_next, { buffer = true })
-    map("n", "<Leader>dk", vim.diagnostic.goto_prev, { buffer = true })
-    map("n", "<Leader>dl", require("telescope.builtin").diagnostics, { buffer = true })
-    map("n", "<Leader>r", require("utils").rename_var, { buffer = true })
-    map("n", "<Leader>c", vim.lsp.buf.code_action, { buffer = true })
-end
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -53,4 +46,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-vim.cmd.colorscheme("monokai-pro")
+vim.cmd.colorscheme('monokai-pro')

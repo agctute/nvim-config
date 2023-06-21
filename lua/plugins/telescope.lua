@@ -5,26 +5,18 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
         local tele = require('telescope')
+        local builtin = require('telescope.builtin')
         tele.setup({
             extensions = {
                 conda = {anaconda_path = "C:\\Users\\cjyou\\anaconda3\\"},
             }
         })
         vim.keymap.set("n", "<Leader>pp", "<Cmd>lua require'telescope'.extensions.conda.conda{}<Cr>")
+        vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+        vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+        vim.keymap.set('n', '<leader>ps', function()
+            builtin.grep_string({ search = vim.fn.input("Grep > ") })
+        end)
     end
-    },
-    {
-        dir = "C:\\Users\\cjyou\\OneDrive\\Documents\\Projects\\telescope-repo.nvim",
-        -- "cljoly/telescope-repo.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope.nvim',
-        },
-        config = function()
-            local tel = require('telescope')
-            tel.setup()
-            tel.load_extension "repo"
-        end
     },
 }
