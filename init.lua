@@ -8,25 +8,26 @@ vim.opt.relativenumber = true
 vim.opt.autoindent = true
 vim.opt.colorcolumn = "79"
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.shiftround = true
-vim.o.guifont = "Hack Nerd Font"
+vim.o.guifont = "Hack Nerd Font Mono"
 
 vim.g.mapleader = " "
 
 local map = vim.keymap.set
-map("t", "<Esc>", "<C-Bslash><C-n>:bd!<Cr>")
+map("t", "<C-Esc>", "<C-Bslash><C-n>:bd!<Cr>")
 map("n", "<leader>t", ":term<Cr>i")
 map("n", "<leader>ff", ":Telescope<Cr>")
-map("n", "<Leader>g", ":Git<Cr>")
-map("n", "<Leader>s", ":w<Cr>")
+map("n", "<leader>g", ":Git<Cr>")
+map("n", "<leader>s", ":w<Cr>")
 map("x", "<", "<gv")
 map("x", ">", ">gv")
-map("n", "<Leader>w", ":bd<Cr>")
-map("n", "<Leader>pv", vim.cmd.Ex)
+map("n", "<leader>w", ":bd<Cr>")
+map("n", "<leader>pv", vim.cmd.Ex)
+map("n", "<leader>m", "`")
 
 vim.opt.clipboard = "unnamedplus"
 
