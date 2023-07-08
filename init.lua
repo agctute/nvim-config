@@ -14,8 +14,9 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.shiftround = true
 vim.o.guifont = "Hack Nerd Font Mono"
-
 vim.g.mapleader = " "
+
+vim.opt.updatetime = 750
 
 local map = vim.keymap.set
 map("t", "<C-Esc>", "<C-Bslash><C-n>:bd!<Cr>")
