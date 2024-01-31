@@ -32,10 +32,23 @@ map("n", "<leader>pv", vim.cmd.Ex)
 map("n", "<leader>m", "`")
 map("n", "<leader>`", "<C-w>w")
 
+vim.g.clipboard = {
+  name = 'win32yank',
+  copy = {
+    ["+"] = 'win32yank.exe -i --crlf',
+    ["*"] = 'win32yank.exe -i --crlf',
+  },
+  paste = {
+    ["+"] = 'win32yank.exe -o --lf',
+    ["*"] = 'win32yank.exe -o --lf',
+  },
+  cache_enabled = 0,
+} 
 vim.opt.clipboard = "unnamedplus"
 
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+vim.opt.rtp:prepend(lazypath)
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -47,7 +60,6 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 
-vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 vim.g.copilot_no_tab_map = true
