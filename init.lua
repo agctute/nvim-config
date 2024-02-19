@@ -32,18 +32,19 @@ map("n", "<leader>pv", vim.cmd.Ex)
 map("n", "<leader>m", "`")
 map("n", "<leader>`", "<C-w>w")
 
-vim.g.clipboard = {
-  name = 'win32yank',
-  copy = {
-    ["+"] = 'win32yank.exe -i --crlf',
-    ["*"] = 'win32yank.exe -i --crlf',
-  },
-  paste = {
-    ["+"] = 'win32yank.exe -o --lf',
-    ["*"] = 'win32yank.exe -o --lf',
-  },
-  cache_enabled = 0,
-} 
+-- vim.g.clipboard = {
+--   name = 'win32yank',
+--   copy = {
+--     ["+"] = 'win32yank.exe -i --crlf',
+--     ["*"] = 'win32yank.exe -i --crlf',
+--   },
+--   paste = {
+--     ["+"] = 'win32yank.exe -o --lf',
+--     ["*"] = 'win32yank.exe -o --lf',
+--   },
+--   cache_enabled = 0,
+-- } 
+--
 vim.opt.clipboard = "unnamedplus"
 
 
@@ -64,5 +65,5 @@ end
 require("lazy").setup("plugins")
 vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
--- vim.cmd.colorscheme('monokai-pro')
+-- vim.cmd.colorscheme('monokai-pro-octogon')
 -- vim.cmd.colorscheme('default')

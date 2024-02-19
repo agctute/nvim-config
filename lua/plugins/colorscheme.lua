@@ -1,7 +1,7 @@
 return {
-  "Vanluren/neovim-onehalf",
+  "loctvl842/monokai-pro.nvim",
   config = function()
-    vim.cmd([[colorscheme one-half-dark]])
+    vim.cmd([[colorscheme monokai-pro-octagon]])
   end
 }
 
